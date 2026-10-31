@@ -1,7 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import { ENV } from './config/env.js';
-import { initDatabase } from './db/database.js';
+import { initDatabase, db } from './db/database.js';
+import { seedDatabase } from './db/seed.js';
 import healthRouter from './routes/health.js';
 import chatRouter from './routes/chat.js';
 import schemesRouter from './routes/schemes.js';
@@ -12,8 +13,17 @@ import feedbackRouter from './routes/feedback.js';
 
 const app = express();
 
-// Initialize Database
+// Initialize Database & Auto-seed if empty
 initDatabase();
+try {
+  const countRow = db.prepare('SELECT COUNT(*) as count FROM schemes').get() as { count: number };
+  if (!countRow || countRow.count === 0) {
+    console.log('[Server] Database is empty, auto-seeding verified Maharashtra schemes...');
+    seedDatabase();
+  }
+} catch (e) {
+  console.warn('[Server] Auto-seed check notice:', e);
+}
 
 // Middleware
 app.use(cors({
