@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+:root {
+  --navy: #14263D;
+  --navy-light: #1E385B;
+  --teal: #167D83;
+  --teal-light: #2099A0;
+  --teal-subtle: #EBF7F7;
+  --warm-white: #F7F8F5;
+  --slate: #667085;
+  --slate-light: #F0F2F5;
+  --saffron: #E3A64A;
+  --saffron-subtle: #FEF7EE;
+  --emerald: #10B981;
+}
+
+body {
+  margin: 0;
+  background-color: var(--warm-white);
+  color: #1A202C;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', 'Noto Sans Devanagari', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar for sleek modern civic UI */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

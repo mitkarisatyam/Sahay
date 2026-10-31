@@ -1,0 +1,16 @@
+{
+  "name": "sahay-ai",
+  "version": "1.0.0",
+  "description": "SAHAY AI — Multilingual AI-Powered Citizen Services Platform for Maharashtra",
+  "scripts": {
+    "dev": "concurrently -n \"backend,frontend\" -c \"blue,green\" \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "seed": "cd backend && npm run seed",
+    "test": "cd backend && npm run test",
+    "build": "cd backend && npm run build && cd ../frontend && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
